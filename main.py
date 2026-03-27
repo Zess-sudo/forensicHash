@@ -43,8 +43,8 @@ while True:
             output_file = input("Enter the output file name (without extension): ")
             output_path = f"{output_file}.txt"
             try:
-                with open(output_path, "w") as f:
-                    f.write(f"{hash_name.upper()}: {hash_obj.hexdigest()}\n")
+                with open(output_path, "a") as f:
+                    f.write(f"File: {file_path} | Algorithm: {hash_name.upper()} | Hash: {hash_obj.hexdigest()}\n")
                 print(f"Hash saved to {output_path}")
             except Exception as e:
                 print("An error occurred while saving the file:", str(e))
