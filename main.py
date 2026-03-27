@@ -29,13 +29,25 @@ while True:
             break
 
     try:
-    # Create a hash object based on the user's choice
+        # Create a hash object based on the user's choice
         with open(file_path, "rb") as f:
-        # Read the file in chunks to avoid memory issues
+            # Read the file in chunks to avoid memory issues
             for byte_block in iter(lambda: f.read(4096), b""):
                 hash_obj.update(byte_block)
-    # Print the hash
+        # Print the hash
         print(f"{hash_name.upper()}:", hash_obj.hexdigest())
+        #ask the user if they want to hash another file
+        save = input("\nDo you want to save the hash to a file? (y/n): ").lower()
+        if save == "y":
+            #create a file name based on user input to desktop
+            output_file = input("Enter the output file name (without extension): ")
+            output_path = f"{output_file}.txt"
+            try:
+                with open(output_path, "w") as f:
+                    f.write(f"{hash_name.upper()}: {hash_obj.hexdigest()}\n")
+                print(f"Hash saved to {output_path}")
+            except Exception as e:
+                print("An error occurred while saving the file:", str(e))
     except FileNotFoundError:
         print("File not found.")
     except PermissionError:
