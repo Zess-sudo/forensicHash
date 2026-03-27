@@ -52,7 +52,7 @@ The user may then choose to hash another file or exit the program.
 - Add hash verification mode
 - Add graphical user interface
 - Support hashing entire directories
-- Export hash results to a report file
+- ~~Export hash results to a report file~~
 
 ### Academic Statement
 This project was developed as part of coursework for a digital forensics course. It is intended solely for educational and demonstration purposes. The tool demonstrates fundamental concepts of cryptographic hashing and file integrity verification used in digital forensic investigations.
